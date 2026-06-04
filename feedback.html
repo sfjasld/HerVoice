@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HerVoice 留言板 - 分享建议，需审核后显示">
+  <title>留言板 | HerVoice</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="nav-inner">
+      <a href="index.html" class="site-logo">Her<span>Voice</span></a>
+      <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="sex-education.html">懂·性</a></li>
+        <li><a href="youth.html">青芽</a></li>
+        <li><a href="pregnancy.html">孕悦</a></li>
+        <li><a href="feedback.html">留言板</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <h1>留言板</h1>
+      <p class="tagline">分享你的想法，一起推动改变。</p>
+    </section>
+
+    <p class="feedback-notice">
+      所有留言需经过审核后显示，请文明发言。
+    </p>
+
+    <!-- ===== 方案一：Cusdis 评论系统（支持审核） ===== -->
+    <section class="feedback-section">
+      <h2>在线留言（Cusdis）</h2>
+
+      <!--
+        使用前请前往 https://cusdis.com 注册账号并创建站点，
+        将下方 data-app-id 中的「你的APP_ID」替换为真实的 App ID。
+        同时将 data-page-url 改为你的网站实际地址。
+      -->
+      <div id="cusdis_thread"
+           data-host="https://cusdis.com"
+           data-app-id="你的APP_ID"
+           data-page-id="feedback"
+           data-page-url="你的网站地址/feedback.html"
+           data-page-title="留言板">
+      </div>
+
+      <p class="cusdis-setup-hint">
+        ⚠️ 提示：Cusdis 尚未配置。请访问
+        <a href="https://cusdis.com" target="_blank" rel="noopener">cusdis.com</a>
+        注册账号 → 创建站点 → 复制 App ID → 替换上方代码中的 <code>你的APP_ID</code>，
+        并将 <code>data-page-url</code> 改为你的实际网站地址。
+        Cusdis 后台可开启评论审核功能。
+      </p>
+
+      <!-- Cusdis 嵌入脚本（配置好 APP_ID 后生效） -->
+      <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+    </section>
+
+    <!-- ===== 方案二：Google Form 备用表单 ===== -->
+    <section class="feedback-section">
+      <h2>备用：Google 表单提交</h2>
+      <p style="color: var(--color-text-muted); margin-bottom: 1rem; font-size: 0.95rem;">
+        如果你不想使用 Cusdis，也可以创建 Google 表单并替换下方 iframe 的链接。
+      </p>
+
+      <div class="form-iframe-wrapper">
+        <!--
+          替换 src 为你自己的 Google Form 嵌入链接：
+          在 Google 表单中点击「发送」→ 选择 <> 嵌入 HTML → 复制 src 地址
+        -->
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSexample/viewform?embedded=true"
+          title="HerVoice 留言表单"
+          loading="lazy">
+          加载中…
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 HerVoice. 让女性的声音被听见。</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
