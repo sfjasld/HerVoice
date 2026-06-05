@@ -43,6 +43,15 @@
   /* ---------- 3. 孕悦页：支持按钮 + localStorage 计数 ---------- */
   var STORAGE_KEY = 'hervoice_pregnancy_support';
 
+  // 各建议的初始基数（模拟已有支持数）
+  var BASE_COUNTS = {
+    'maternity-pants': 47,
+    'ultrasound-gel': 63,
+    'postpartum-depression': 89,
+    'nursing-room': 72,
+    'pregnancy-medication': 58
+  };
+
   function getSupportCounts() {
     try {
       var data = localStorage.getItem(STORAGE_KEY);
@@ -70,10 +79,10 @@
       var id = btn.getAttribute('data-support-id');
       var countEl = document.querySelector('[data-count-for="' + id + '"]');
 
-      // 初始化显示计数
+      // 初始化显示计数（加上基数）
       if (!counts[id]) counts[id] = 0;
       if (countEl) {
-        countEl.textContent = counts[id];
+        countEl.textContent = (BASE_COUNTS[id] || 0) + counts[id];
       }
 
       // 如果用户已支持过，显示已支持状态
@@ -91,7 +100,7 @@
         saveSupportCounts(counts);
 
         if (countEl) {
-          countEl.textContent = counts[id];
+          countEl.textContent = (BASE_COUNTS[id] || 0) + counts[id];
         }
 
         localStorage.setItem(supportedKey, '1');
